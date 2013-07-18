@@ -32,12 +32,12 @@ class IOSDeviceLocator
     uri = @partition ? "https://#{@partition}#{url}" : "https://fmipmobile.icloud.com#{url}"
 
     headers = {
-      'Authorization' => "Basic #{Base64.encode64("#{@username}:#{@password}")}",
+      'Authorization' => "Basic #{Base64.encode64("#{@username}:#{@password}").chomp!}",
       'Content-Type' => 'application/json; charset=utf-8',
       'X-Apple-Find-Api-Ver' => '2.0',
       'X-Apple-Authscheme' => 'UserIdGuest',
       'X-Apple-Realm-Support' => '1.0',
-      'User-agent' => 'Find iPhone/1.3 MeKit (iPad: iPhone OS/4.2.1)',
+      'User-Agent' => 'Find iPhone/1.3 MeKit (iPad: iPhone OS/4.2.1)',
       'X-Client-Name' => 'iPad',
       'X-Client-UUID' => '0cf3dc501ff812adb0b202baed4f37274b210853',
       'Accept-Language' => 'en-us',
